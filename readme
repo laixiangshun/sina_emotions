@@ -1,0 +1,15 @@
+1.自定义插件解析微博一千多个表情，包含本地版本和跨越请求版本
+2.自定义文字逐字显示插件
+3.自定义文字打印效果插件，可以实现html代码内容的输出
+4.实现鼠标滚动效果：Firefox浏览器和其他浏览器不一样，前后滚动相反
+5.分析了JavaScript代码中
+  offsetWidth，offsetHeight取值， //offsetWidth = width + padding + border， 和margin无关
+  获取元素在css中定义的样式：IE和非IE
+  // IE中用element.currentStyle.width / element.currentStyle.[‘width'];
+  //非IE中用getComputedStyle(element, false)[‘width']
+ 6.分析在jquery中：
+    element.offset().top+";"+ element.offset().left+";"+ element.height()+";"+ element.width()的取值
+    其中top=上面element.height+margin-top
+    left=左边element.left+margin-left
+    height()=element.height
+    width()=element.width

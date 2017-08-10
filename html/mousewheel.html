@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通过鼠标滚动放大缩小</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            height: 1200px;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: green;
+            margin: 50px 500px;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            display: inline-block;
+            line-height: 80px;
+            font-size: 18px;
+            color: #54FFFF;
+            font-weight: 800;
+            border: 1px solid #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 100px;background: #EFFF74"></div>
+    <div id="box" onmousewheel="wheel();">鼠标滚动</div>
+
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
+        function wheel(){
+                var box=document.getElementById("box");
+                var str=window.navigator.userAgent.toLowerCase();//获取浏览器类型
+                if(str.indexOf("firefox")!=-1){//Firefox浏览器
+                    box.addEventListener("DOMMouseScroll",function(event){
+                        var event=event || window.event;
+                        if(event.detail<0){
+                            console.log("前滚");
+                            box.style.width=box.offsetWidth+20+'px';
+                            box.style.height=box.offsetHeight+20+'px';
+                        }
+                        if(event.detail>0){
+                            console.log("后滚");
+                            box.style.width=box.offsetWidth-120+'px';
+                            box.style.height=box.offsetHeight-120+'px';
+                        }
+                        return false;//阻止默认事件
+                    },false);
+                }else{//非Firefox浏览器：鼠标滚动的前后轮相反
+                    box.onmousewheel=function(e){
+                        var e=e || window.event;
+                        if(e.preventDefault()){
+                            e.preventDefault();
+                        }else{
+                            e.returnValue=false;
+                        }
+                        if(e.wheelDelta>0){
+                            console.log("前滚");
+                            //标签的可视化高宽，offsetWidth = width + padding + border， 和margin无关
+                            console.log(box.offsetWidth);
+                            console.log(box.offsetHeight);
+                           // box.style.width=box.offsetWidth+20+'px';
+                           // box.style.height=box.offsetHeight+20+'px';
+                           box.style.width=parseInt(getStyle(box,'width'))+20+'px';
+                            box.style.height=parseInt(getStyle(box,'height'))+20+'px';
+                            //测试jquery的offset().top，offset().left，height()，width()
+                            var b=$("#box");
+                            console.log(b.offset());
+                            console.log(b.offset().top+";"+ b.offset().left+";"+ b.height()+";"+ b.width());
+                        }
+                        if(e.wheelDelta<0){
+                            console.log("后滚");
+                            //offsetWidth = width + padding + border， 和margin无关
+                            console.log(box.offsetWidth);
+                            console.log(box.offsetHeight);
+                            //这样会越变越大，原因是padding 为50px大于减去的20px，offsetWidth每次加100px再减20px
+                           //box.style.width=box.offsetWidth-20+'px';
+                           // box.style.height=(box.offsetHeight-20)+'px';
+                            box.style.width=parseInt(getStyle(box,'width'))-20+'px';
+                            box.style.height=parseInt(getStyle(box,'height'))-20+'px';
+                        }
+                        return false;//阻止默认事件
+                    }
+                }
+        }
+        //获取元素的行间样式直接用element.style.width即可，但是这只针对元素的行间样式，
+        // 如果写在css中，你就获取不到了
+        // IE中用element.currentStyle.width / element.currentStyle.[‘width'];
+        //非IE中用getComputedStyle(element, false)[‘width']
+        function getStyle(element,attr){
+            if(element.currentStyle){//IE
+                return element.currentStyle[attr];
+            }else{
+                return getComputedStyle(element,false)[attr];
+            }
+        }
+    </script>
+</body>
+</html>
