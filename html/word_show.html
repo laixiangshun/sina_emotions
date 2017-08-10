@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>文字动画</title>
+    <style type="text/css">
+        #content{
+            width: 1110px;
+            height: 625px;
+            margin-top: 10px;
+            margin-left: 236.5px;
+        }
+        #code{
+            float: left;
+            width: 440px;
+            height: 400px;
+            color: #333;
+            font-family: "Consolas","Monaco","Bitstream Vera Sans Mono","Courier New","sans-serif";
+            font-size: 14px;
+            margin-top: 112.5px;
+        }
+        #code .comments{
+            color: #3f7f5f;
+        }
+        #code .space{
+            margin-left: 7px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="code">
+            <span class="comments">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+            <br>
+            <span class="space">
+                <span class="comments">/** this is o word</span>
+                <br>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/word_show.js"></script>
+    <script type="text/javascript">
+        $("#code").typewriter();
+    </script>
+</body>
+</html>

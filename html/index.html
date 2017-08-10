@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jquery新浪表情插件</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/sinaEmotions.css">
+</head>
+<body>
+    <div id="content">
+        <div class="show">
+            <h1>新浪微博一千多个表情插件</h1>
+            <h1>完美兼容IE6+等所有主流浏览器</h1>
+            <h1>本地实现，下载表情图片到本地，获取到微博表情API返回json文件，在本地调用该文件</h1>
+            <div id="out"></div>
+            <textarea id="emotion"></textarea>
+            <div class="btn_div">
+                <input type="button" class="but_emotion" value="表&emsp;情" id="face">
+                <input type="button" class="but_emotion" value="解&emsp;析" id="analytic">
+            </div>
+        </div>
+        <div class="show_jsonp">
+            <h1>新浪微博一千多个表情插件</h1>
+            <h1>完美兼容IE6+等所有主流浏览器</h1>
+            <h1>通过ajax跨越请求新浪表情API接口获取表情json数据</h1>
+            <div id="out2"></div>
+            <textarea id="emotion2"></textarea>
+            <div class="btn_div">
+                <input type="button" class="but_emotion" value="表&emsp;情" id="face2">
+                <input type="button" class="but_emotion" value="解&emsp;析" id="analytic2">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+       <!-- <p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>-->
+        <p id="brower"></p>
+        <p>来源：<a href="http://dwtedx.com" target="_blank">rianbow博客</a></p>
+    </div>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery_emotion.js"></script>
+    <script type="text/javascript" src="../js/sinaemotion_jsonp.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript">
+        //显示表情，自定义插件方法
+        $("#face").SinaEmotion($("#emotion"));
+        //解析
+        $("#analytic").click(function(){
+            var inputVal=$("#emotion").val();
+            $("#out").html(AnalyticEmotion(inputVal));
+        });
+
+        $("#face2").SinaEmotion($("#emotion2"));
+        $("#analytic2").click(function(){
+            var inputVal=$("#emotion2").val();
+            $("#out2").html(AnalyticEmotion(inputVal));
+        });
+    </script>
+</body>
+</html>

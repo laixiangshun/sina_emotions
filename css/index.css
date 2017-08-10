@@ -1,0 +1,89 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+#content {
+    margin: 50px auto;
+    width: 1000px;
+    height: auto;
+}
+#content h1{
+    font: 1.5em '微软雅黑';
+    color: #0000ff;
+    text-align: center;
+}
+#content .show{
+    width: 450px;
+    height: 480px;
+    float: left;
+    border: 1px dashed #666666;
+    padding: 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+#content .show #out{
+    height: 30px;
+    width: 400px;
+    border: 1px dashed #000000;/*dashed是虚线*/
+    padding: 10px;
+}
+#content .show #emotion{
+    height: 100px;
+    width: 400px;
+    border: 1px solid #54FFFF;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.but_emotion{
+    font: 18px '微软雅黑';
+    color: #77FFA1;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 20px;
+}
+.btn_div{
+    text-align: center;
+    margin-top: 20px;
+}
+.footer{
+    text-align: center;
+    clear: both;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+
+/*跨越请求微博表情数据css样式*/
+
+#content .show_jsonp{
+    width: 450px;
+    height: 480px;
+    float: left;
+    border: 1px dashed #666666;
+    margin-left: 50px;
+    padding: 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+#content .show_jsonp #out2{
+    height: 30px;
+    width: 400px;
+    border: 1px dashed #000000;/*dashed是虚线*/
+    padding: 10px;
+}
+#content .show_jsonp #emotion2{
+    height: 100px;
+    width: 400px;
+    border: 1px solid #54FFFF;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
